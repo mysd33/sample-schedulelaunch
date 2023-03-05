@@ -9,9 +9,9 @@ spring:
   main:
     web-application-type: none
 
-#management:
-#  endpoints:
-#    enabled-by-default: false
+management:
+  endpoints:
+    enabled-by-default: false
 
 batch:
   schedule:
