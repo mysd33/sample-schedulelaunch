@@ -1,0 +1,16 @@
+logging:
+  level:
+    org.springframework: INFO
+    org.springframework.jdbc: INFO
+    com.example: DEBUG
+    
+delayed:
+  batch:
+    queues:
+  　　  sampleBatch:
+        name: SampleQueue
+    
+aws:
+  sqs:
+    sqslocal:    
+      port: 18001

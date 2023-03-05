@@ -1,0 +1,26 @@
+spring:    
+  application:
+    name: sample-schedulelaunch
+  profiles:
+    active:
+    - dev
+    - log_default  #logging in default format
+#    - log_container  #logging in json format
+  main:
+    web-application-type: none
+
+#management:
+#  endpoints:
+#    enabled-by-default: false
+
+batch:
+  schedule:
+    enable: true
+    scheduled-jobs:
+      SB_001:
+        job-id: job001
+        params:
+          param01: aaa
+          param02: bbb
+        job-request-repository: sampleBatchJobRequestRepository
+   
