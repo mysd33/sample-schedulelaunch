@@ -15,7 +15,6 @@ management:
 
 batch:
   schedule:
-    enable: true
     scheduled-jobs:
       SB_001:
         job-id: job001

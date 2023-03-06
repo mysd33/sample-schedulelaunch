@@ -69,7 +69,7 @@ public class ScheduleLaunchConfig {
     }
 
     /**
-     * 
+     * JobRequestRepositoryを保持するHolderクラス
      */
     @Bean
     ScheduledBatchJobRequestRepositoryHolder jobRequestRepositoryHolder(ListableBeanFactory beanFactory) {

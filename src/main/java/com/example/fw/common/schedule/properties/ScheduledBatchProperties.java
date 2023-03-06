@@ -17,11 +17,6 @@ import lombok.Setter;
 @Setter
 public class ScheduledBatchProperties {
     /**
-     * バッチAPスケジュール起動を有効化する
-     */
-    private boolean enabled;
-    
-    /**
      * スケジュール起動ジョブ実行要求定義
      */
     private Map<String, ScheduledJob> scheduledJobs = new HashMap<>();
