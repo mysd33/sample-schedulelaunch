@@ -6,7 +6,7 @@ logging:
 delayed:
   batch:
     queues:
-      sampleBatch:
+      sample-batch:
         name: SampleQueue
     
 aws:

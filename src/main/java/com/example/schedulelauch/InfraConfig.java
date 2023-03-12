@@ -19,7 +19,7 @@ import com.example.fw.common.async.repository.JobRequestRepositoryImpl;
 @ComponentScan(basePackageClasses = { SQSCommonConfigPackage.class })
 public class InfraConfig {
     // バッチAPと連携するキュー名
-    @Value("${delayed.batch.queues.sampleBatch.name}")
+    @Value("${delayed.batch.queues.sample-batch.name}")
     private String sampleBatchQueueName;
     
     

@@ -1,5 +1,6 @@
 package com.example.fw.common.schedule.domain.service;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import com.example.fw.common.async.model.JobRequest;
@@ -27,7 +28,7 @@ public class DefaultScheduledBatchJobRequestService implements ScheduledBatchJob
     @Override
     public void requestJob(ScheduledBatchJobRequestInputDto inputDto) {
         applogger.debug("登録対象ジョブ実行要求定義: {}", inputDto);
-        Map<String, String> params = inputDto.getParams();
+        Map<String, String> params = new HashMap<>(inputDto.getParams());
         // ジョブIDとパラメータが一致していても、何度も実行できるよう、システム現在日時を追加設定
         params.put(BATCH_PARAM_NOW, systemDate.now().toString());
 
