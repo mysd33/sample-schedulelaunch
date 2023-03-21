@@ -1,4 +1,4 @@
-package com.example.schedulelauch;
+package com.example.schedulelaunch;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package com.example.schedulelauch;
+package com.example.schedulelaunch;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
