@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.7.9</version>
+		<version>3.0.6</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
@@ -15,10 +15,10 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
-		<spring.cloud-version>2021.0.5</spring.cloud-version>
+		<spring.cloud-version>2022.0.2</spring.cloud-version>
 		<logstash-logback-encoder.version>7.2</logstash-logback-encoder.version>
-		<awssdk.bom.version>2.17.247</awssdk.bom.version>
-		<amazon-sqs-java-messaging-lib.version>2.0.3</amazon-sqs-java-messaging-lib.version>
+		<awssdk.bom.version>2.20.55</awssdk.bom.version>
+		<amazon-sqs-java-messaging-lib.version>2.1.1</amazon-sqs-java-messaging-lib.version>
 	</properties>
 	<dependencies>
 		<!-- Spring Boot  -->
@@ -51,15 +51,15 @@
 			<artifactId>logstash-logback-encoder</artifactId>
 			<version>${logstash-logback-encoder.version}</version>
 		</dependency>
-		<!-- Spring Cloud Sleuth -->
+		<!-- Micrometer Tracing -->
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-sleuth</artifactId>
+		    <groupId>io.micrometer</groupId>
+		    <artifactId>micrometer-tracing-bridge-brave</artifactId>
 		</dependency>
 		<!-- JMS API -->
 		<dependency>
-			<groupId>javax.jms</groupId>
-			<artifactId>javax.jms-api</artifactId>
+			<groupId>jakarta.jms</groupId>
+			<artifactId>jakarta.jms-api</artifactId>
 		</dependency>
 		<!-- Spring JMS -->
 		<dependency>
@@ -96,6 +96,14 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+			<!-- Micrometer Tracing -->
+			<dependency>
+	            <groupId>io.micrometer</groupId>
+	            <artifactId>micrometer-tracing-bom</artifactId>
+	            <version>${micrometer-tracing.version}</version>
+	            <type>pom</type>
+	            <scope>import</scope>
+	        </dependency>			
 		</dependencies>
 	</dependencyManagement>
 	<build>

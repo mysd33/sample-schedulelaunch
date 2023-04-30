@@ -28,4 +28,8 @@ batch:
           param01: aaa
           param02: bbb
         job-request-repository: sampleBatchJobRequestRepository        
-   
+
+# Micrometer Tracing         
+logging:
+  pattern:
+    level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"   
