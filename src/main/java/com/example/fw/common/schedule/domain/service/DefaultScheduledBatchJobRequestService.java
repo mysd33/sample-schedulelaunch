@@ -6,6 +6,7 @@ import java.util.Map;
 import com.example.fw.common.async.model.JobRequest;
 import com.example.fw.common.logging.ApplicationLogger;
 import com.example.fw.common.logging.LoggerFactory;
+import com.example.fw.common.message.CommonFrameworkMessageIds;
 import com.example.fw.common.schedule.infra.repository.ScheduledBatchJobRequestRepositoryHolder;
 import com.example.fw.common.systemdate.SystemDate;
 
@@ -27,7 +28,7 @@ public class DefaultScheduledBatchJobRequestService implements ScheduledBatchJob
 
     @Override
     public void requestJob(ScheduledBatchJobRequestInputDto inputDto) {
-        applogger.debug("登録対象ジョブ実行要求定義: {}", inputDto);
+        applogger.info(CommonFrameworkMessageIds.I_CM_FW_0002, inputDto);
         Map<String, String> params = new HashMap<>(inputDto.getParams());
         // ジョブIDとパラメータが一致していても、何度も実行できるよう、システム現在日時を追加設定
         params.put(BATCH_PARAM_NOW, systemDate.now().toString());
@@ -35,7 +36,7 @@ public class DefaultScheduledBatchJobRequestService implements ScheduledBatchJob
         JobRequest jobRequest = JobRequest.builder()//
                 .jobId(inputDto.getJobId())//
                 .parameters(params).build();
-        applogger.debug("送信するジョブ実行要求: {}", jobRequest);
+        applogger.info(CommonFrameworkMessageIds.I_CM_FW_0003, jobRequest);
         jobRequestRepositoryHolder.getJobRequestRepository().save(jobRequest);
 
     }
