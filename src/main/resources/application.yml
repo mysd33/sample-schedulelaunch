@@ -8,6 +8,10 @@ spring:
 #    - log_container  #logging in json format
   main:
     web-application-type: none
+# Virtual Thread                  
+  threads:
+    virtual:
+      enabled: true    
 
 management:
   endpoints:
