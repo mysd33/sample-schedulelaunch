@@ -1,6 +1,6 @@
 package com.example.fw.common.systemdate;
 
-import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 
 /**
  * システム日時取得用インタフェース
@@ -15,6 +15,7 @@ public interface SystemDate {
      * 
      * @return システム日時
      */
-    LocalDateTime now();
+    ZonedDateTime now();
+        
 
 }

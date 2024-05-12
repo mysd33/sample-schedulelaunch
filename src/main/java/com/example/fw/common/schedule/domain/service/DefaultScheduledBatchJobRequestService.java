@@ -31,7 +31,7 @@ public class DefaultScheduledBatchJobRequestService implements ScheduledBatchJob
         applogger.info(CommonFrameworkMessageIds.I_CM_FW_0002, inputDto);
         Map<String, String> params = new HashMap<>(inputDto.getParams());
         // ジョブIDとパラメータが一致していても、何度も実行できるよう、システム現在日時を追加設定
-        params.put(BATCH_PARAM_NOW, systemDate.now().toString());
+        params.put(BATCH_PARAM_NOW, systemDate.now().toLocalDateTime().toString());
 
         JobRequest jobRequest = JobRequest.builder()//
                 .jobId(inputDto.getJobId())//
