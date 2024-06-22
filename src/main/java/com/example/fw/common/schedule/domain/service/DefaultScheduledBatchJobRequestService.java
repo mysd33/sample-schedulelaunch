@@ -28,7 +28,7 @@ public class DefaultScheduledBatchJobRequestService implements ScheduledBatchJob
 
     @Override
     public void requestJob(ScheduledBatchJobRequestInputDto inputDto) {
-        applogger.info(CommonFrameworkMessageIds.I_CM_FW_0002, inputDto);
+        applogger.info(CommonFrameworkMessageIds.I_CM_FW_0003, inputDto);
         Map<String, String> params = new HashMap<>(inputDto.getParams());
         // ジョブIDとパラメータが一致していても、何度も実行できるよう、システム現在日時を追加設定
         params.put(BATCH_PARAM_NOW, systemDate.now().toLocalDateTime().toString());
@@ -36,7 +36,7 @@ public class DefaultScheduledBatchJobRequestService implements ScheduledBatchJob
         JobRequest jobRequest = JobRequest.builder()//
                 .jobId(inputDto.getJobId())//
                 .parameters(params).build();
-        applogger.info(CommonFrameworkMessageIds.I_CM_FW_0003, jobRequest);
+        applogger.info(CommonFrameworkMessageIds.I_CM_FW_0004, jobRequest);
         jobRequestRepositoryHolder.getJobRequestRepository().save(jobRequest);
 
     }
