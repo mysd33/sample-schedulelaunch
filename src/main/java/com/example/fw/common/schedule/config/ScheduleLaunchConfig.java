@@ -16,7 +16,7 @@ import com.example.fw.common.schedule.infra.repository.ScheduledBatchJobRequestR
 import com.example.fw.common.schedule.properties.ScheduledBatchProperties;
 import com.example.fw.common.schedule.properties.ScheduledBatchProperties.ScheduledJob;
 import com.example.fw.common.systemdate.SystemDate;
-import com.example.fw.common.systemdate.SystemDateConfig;
+import com.example.fw.common.systemdate.config.SystemDateConfig;
 
 /**
  * 
@@ -49,7 +49,7 @@ public class ScheduleLaunchConfig {
      * バッチのスケジュール起動クラス
      */
     @Bean
-    public BatchAppLauncher batchAppLauncher(ScheduledBatchJobRequestService service) {
+    BatchAppLauncher batchAppLauncher(ScheduledBatchJobRequestService service) {
         ScheduledJob scheduledJob = scheduledBatchProperties.getScheduledJobs().get(scheduleId);
         ScheduledBatchJobRequestInputDto inputDto = ScheduledBatchJobRequestInputDto.builder()//
                 .scheduleId(scheduleId)//
@@ -63,7 +63,7 @@ public class ScheduleLaunchConfig {
      * バッチのスケジュール起動Serviceクラス
      */
     @Bean
-    public ScheduledBatchJobRequestService scheduledBatchJobRequestService(
+    ScheduledBatchJobRequestService scheduledBatchJobRequestService(
             ScheduledBatchJobRequestRepositoryHolder repositoryHolder, SystemDate systemDate) {
         return new DefaultScheduledBatchJobRequestService(repositoryHolder, systemDate);
     }

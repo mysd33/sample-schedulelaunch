@@ -27,7 +27,7 @@ public class InfraConfig {
      * JobRequestRepositoryの設定
      */
     @Bean
-    public JobRequestRepository sampleBatchJobRequestRepository(JmsTemplate jmsTemplate) {
+    JobRequestRepository sampleBatchJobRequestRepository(JmsTemplate jmsTemplate) {
         return new JobRequestRepositoryImpl(jmsTemplate, sampleBatchQueueName);
     }
 }
