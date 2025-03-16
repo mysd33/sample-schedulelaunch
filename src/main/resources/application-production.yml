@@ -9,13 +9,13 @@ logging:
     org.springframework: INFO
     com.example: DEBUG
     
-delayed:
-  batch:
-    queues:
-      sample-batch:
-        name: SampleQueue
+#delayed:
+#  batch:
+#    queues:
+#      sample-batch:
+#        name: SampleQueue
     
-aws:
-  sqs:
-    sqslocal:    
-      port: 18001
+#aws:
+#  sqs:
+#    sqslocal:    
+#      port: 18001
