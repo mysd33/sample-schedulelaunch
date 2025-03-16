@@ -2,8 +2,7 @@
 spring:
   config:
     import: 
-      - 'aws-parameterstore:/config/common'
-      - 'aws-parameterstore:/config/sample-schedulelaunch'
+      - 'aws-parameterstore:/config/common/;/config/sample-schedulelaunch/'
 
 logging:
   level:
