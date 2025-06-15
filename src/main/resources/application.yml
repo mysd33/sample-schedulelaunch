@@ -26,10 +26,28 @@ batch:
         params:
           param01: aaa
           param02: bbb
+          input-file-name: files/input/todolist.csv
+        job-request-repository: sampleBatchJobRequestRepository
+# error testcase        
+      SB_001e:
+        job-id: job001
+        params:
+          param01: aaa
+          param02: bbb
+          input-file-name: files/input/todolist_validation_error.csv
         job-request-repository: sampleBatchJobRequestRepository
       SB_002:
         job-id: job002
         params:
           param01: aaa
           param02: bbb
-        job-request-repository: sampleBatchJobRequestRepository   
+          input-file-name: files/input/todolist.csv
+        job-request-repository: sampleBatchJobRequestRepository
+# error testcase
+      SB_002e:
+        job-id: job002
+        params:
+          param01: aaa
+          param02: bbb
+          input-file-name: files/input/todolist_validation_error.csv
+        job-request-repository: sampleBatchJobRequestRepository
