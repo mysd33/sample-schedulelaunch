@@ -63,5 +63,5 @@ batch:
         params:
           param01: aaa
           param02: bbb
-          input-file-name: files/input/todolist_validation_error.csv
+          input-file-name: files/input/todolist_validation_error2.csv
         job-request-repository: sampleBatchJobRequestRepository        
