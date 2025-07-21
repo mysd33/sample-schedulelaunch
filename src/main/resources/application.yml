@@ -12,7 +12,10 @@ spring:
   threads:
     virtual:
       enabled: true
-
+# Spring Cloud for AWS Parameter Store & Integration Secreters Manager Integration
+  config:
+    import: 
+      - optional:aws-parameterstore:/config/common/;/config/sample-schedulelaunch/
 management:
   endpoints:
     access:
