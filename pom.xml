@@ -18,7 +18,6 @@
         <java.version>21</java.version>
         <spring-cloud.version>2025.0.0</spring-cloud.version>
         <spring-cloud-aws.version>3.4.0</spring-cloud-aws.version>        
-        <awssdk.bom.version>2.31.76</awssdk.bom.version>
         <amazon-sqs-java-messaging-lib.version>2.1.4</amazon-sqs-java-messaging-lib.version>
     </properties>
     <dependencies>
@@ -101,14 +100,6 @@
     </dependencies>
     <dependencyManagement>
         <dependencies>
-            <!-- AWS SDK -->
-            <dependency>
-                <groupId>software.amazon.awssdk</groupId>
-                <artifactId>bom</artifactId>
-                <version>${awssdk.bom.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
             <!-- Spring Cloud -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
