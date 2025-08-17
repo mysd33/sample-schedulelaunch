@@ -43,7 +43,7 @@ public class BatchAppLauncher implements ApplicationRunner {
             scheduledBatchJobRequestService.requestJob(inputDto);
             
         } catch (Exception e) {
-            monitorLogger.error(CommonFrameworkMessageIds.E_CM_FW_9001, e);
+            monitorLogger.error(CommonFrameworkMessageIds.E_FW_CMMN_9001, e);
             
         }
         
