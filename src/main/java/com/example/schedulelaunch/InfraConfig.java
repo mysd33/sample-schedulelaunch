@@ -9,6 +9,7 @@ import org.springframework.jms.core.JmsTemplate;
 import com.example.fw.common.async.config.SQSCommonConfigPackage;
 import com.example.fw.common.async.repository.JobRequestRepository;
 import com.example.fw.common.async.repository.JobRequestRepositoryImpl;
+import com.example.fw.common.logging.config.LoggingConfigPackage;
 
 /**
  * 
@@ -16,13 +17,13 @@ import com.example.fw.common.async.repository.JobRequestRepositoryImpl;
  *
  */
 @Configuration
-@ComponentScan(basePackageClasses = { SQSCommonConfigPackage.class })
+// 非同期処理依頼の設定、ロギング拡張機能の設定を追加
+@ComponentScan(basePackageClasses = { SQSCommonConfigPackage.class, LoggingConfigPackage.class })
 public class InfraConfig {
     // バッチAPと連携するキュー名
     @Value("${delayed.batch.queues.sample-batch.name}")
     private String sampleBatchQueueName;
-    
-    
+
     /**
      * JobRequestRepositoryの設定
      */
