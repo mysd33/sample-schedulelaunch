@@ -25,6 +25,7 @@ import software.amazon.awssdk.services.sqs.SqsClient;
 @EnableConfigurationProperties({ SQSCommonConfigurationProperties.class })
 public class SQSCommonLocalConfig {
     private static final String HTTP_LOCALHOST = "http://localhost:";
+
     private final SQSCommonConfigurationProperties sqsCommonConfigurationProperties;
 
     /**

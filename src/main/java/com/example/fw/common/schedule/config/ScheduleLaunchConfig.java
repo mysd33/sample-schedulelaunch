@@ -9,12 +9,11 @@ import org.springframework.util.StringUtils;
 
 import com.example.fw.common.async.repository.JobRequestRepository;
 import com.example.fw.common.schedule.app.laucher.BatchAppLauncher;
+import com.example.fw.common.schedule.config.ScheduledBatchProperties.ScheduledJob;
 import com.example.fw.common.schedule.domain.service.DefaultScheduledBatchJobRequestService;
 import com.example.fw.common.schedule.domain.service.ScheduledBatchJobRequestInputDto;
 import com.example.fw.common.schedule.domain.service.ScheduledBatchJobRequestService;
 import com.example.fw.common.schedule.infra.repository.ScheduledBatchJobRequestRepositoryHolder;
-import com.example.fw.common.schedule.properties.ScheduledBatchProperties;
-import com.example.fw.common.schedule.properties.ScheduledBatchProperties.ScheduledJob;
 import com.example.fw.common.systemdate.SystemDate;
 import com.example.fw.common.systemdate.config.SystemDateConfig;
 
@@ -75,7 +74,7 @@ public class ScheduleLaunchConfig {
     ScheduledBatchJobRequestRepositoryHolder jobRequestRepositoryHolder(ListableBeanFactory beanFactory) {
         String beanName = scheduledBatchProperties.getScheduledJobs().get(scheduleId).getJobRequestRepository();
         if (!StringUtils.hasText(beanName)) {
-            throw new IllegalStateException("JobRequestRepositoryのBean明が設定されていません[scheduleId: " + scheduleId + "]");
+            throw new IllegalStateException("JobRequestRepositoryのBean名が設定されていません[scheduleId: " + scheduleId + "]");
         }
         Object repository = beanFactory.getBean(beanName);
         if (repository instanceof JobRequestRepository) {
