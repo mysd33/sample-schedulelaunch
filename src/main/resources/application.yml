@@ -26,50 +26,51 @@ management:
       default: none
 
 # Scheduled Batch Job Definition
-batch:
-  schedule:
-    scheduled-jobs:
-      SB_001:
-        job-id: job001
-        params:
-          param01: aaa
-          param02: bbb
-          input-file-name: files/input/todolist.csv
-        job-request-repository: sampleBatchJobRequestRepository
+example:
+  batch:
+    schedule:
+      scheduled-jobs:
+        SB_001:
+          job-id: job001
+          params:
+            param01: aaa
+            param02: bbb
+            input-file-name: files/input/todolist.csv
+          job-request-repository: sampleBatchJobRequestRepository
 # error testcase        
-      SB_001e:
-        job-id: job001
-        params:
-          param01: aaa
-          param02: bbb
-          input-file-name: files/input/todolist_validation_error.csv
-        job-request-repository: sampleBatchJobRequestRepository
-      SB_001e2:
-        job-id: job001
-        params:
-          param01: aaa
-          param02: bbb
-          input-file-name: files/input/todolist_validation_error2.csv
-        job-request-repository: sampleBatchJobRequestRepository
-      SB_002:
-        job-id: job002
-        params:
-          param01: aaa
-          param02: bbb
-          input-file-name: files/input/todolist.csv
-        job-request-repository: sampleBatchJobRequestRepository
+        SB_001e:
+          job-id: job001
+          params:
+            param01: aaa
+            param02: bbb
+            input-file-name: files/input/todolist_validation_error.csv
+          job-request-repository: sampleBatchJobRequestRepository
+        SB_001e2:
+          job-id: job001
+          params:
+            param01: aaa
+            param02: bbb
+            input-file-name: files/input/todolist_validation_error2.csv
+          job-request-repository: sampleBatchJobRequestRepository
+        SB_002:
+          job-id: job002
+          params:
+            param01: aaa
+            param02: bbb
+            input-file-name: files/input/todolist.csv
+          job-request-repository: sampleBatchJobRequestRepository
 # error testcase
-      SB_002e:
-        job-id: job002
-        params:
-          param01: aaa
-          param02: bbb
-          input-file-name: files/input/todolist_validation_error.csv
-        job-request-repository: sampleBatchJobRequestRepository
-      SB_002e2:
-        job-id: job002
-        params:
-          param01: aaa
-          param02: bbb
-          input-file-name: files/input/todolist_validation_error2.csv
-        job-request-repository: sampleBatchJobRequestRepository        
+        SB_002e:
+          job-id: job002
+          params:
+            param01: aaa
+            param02: bbb
+            input-file-name: files/input/todolist_validation_error.csv
+          job-request-repository: sampleBatchJobRequestRepository
+        SB_002e2:
+          job-id: job002
+          params:
+            param01: aaa
+            param02: bbb
+            input-file-name: files/input/todolist_validation_error2.csv
+          job-request-repository: sampleBatchJobRequestRepository

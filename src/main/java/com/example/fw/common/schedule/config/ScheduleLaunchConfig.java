@@ -36,7 +36,7 @@ public class ScheduleLaunchConfig {
         this.scheduledBatchProperties = scheduledBatchProperties;
         this.scheduleId = scheduledBatchProperties.getTargetId();
         if (!StringUtils.hasText(this.scheduleId)) {
-            throw new IllegalStateException("ジョブ実行要求対象のスケジュールID[batch.schedule.target-id]が設定されれていません");
+            throw new IllegalStateException("ジョブ実行要求対象のスケジュールID[example.batch.schedule.target-id]が設定されれていません");
         }
         if (scheduledBatchProperties.getScheduledJobs().get(scheduleId) == null) {
             throw new IllegalStateException("スケジュール起動ジョブ実行要求定義が設定されていません[scheduleId: " + scheduleId + "]");
