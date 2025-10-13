@@ -52,6 +52,12 @@ example:
             param02: bbb
             input-file-name: files/input/todolist_validation_error2.csv
           job-request-repository: sampleBatchJobRequestRepository
+        SB_001e3:
+          job-id: job001
+          params:
+            param01: aaa
+            param02: bbb
+          job-request-repository: sampleBatchJobRequestRepository
         SB_002:
           job-id: job002
           params:
