@@ -24,7 +24,10 @@ management:
   endpoints:
     access:
       default: none
-
+  otlp:
+    metrics:
+      export:
+       enabled: false
 # Scheduled Batch Job Definition
 example:
   batch:
