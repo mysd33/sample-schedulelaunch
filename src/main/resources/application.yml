@@ -18,7 +18,8 @@ spring:
     aws:
       parameterstore:
         enabled: false
-
+      secretsmanager:
+        enabled: false
 # Spring Boot Actuator
 management:
   endpoints:
