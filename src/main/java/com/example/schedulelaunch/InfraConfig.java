@@ -21,7 +21,7 @@ import com.example.fw.common.logging.config.LoggingConfigPackage;
 @ComponentScan(basePackageClasses = { SQSCommonConfigPackage.class, LoggingConfigPackage.class })
 public class InfraConfig {
     // バッチAPと連携するキュー名
-    @Value("${example.delayed.batch.queues.sample-batch.name}")
+    @Value("${example.batch.queues.sample-batch.name}")
     private String sampleBatchQueueName;
 
     /**
