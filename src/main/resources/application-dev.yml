@@ -9,8 +9,7 @@ example:
     sqslocal:
       port: 18001
 # 業務APの設定
-  delayed:
-    batch:
-      queues:
-        sample-batch:
-          name: SampleQueue
+  batch:
+    queues:
+      sample-batch:
+        name: SampleQueue
