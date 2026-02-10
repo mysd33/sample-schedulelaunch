@@ -6,8 +6,8 @@ spring:
         enabled: true
   config:
     import: 
-      - optional:aws-parameterstore:/config/common/;/config/${spring.application.name}/
-   
+      - optional:aws-parameterstore:/config/${PROJECT_NAME}/${ENV_NAME}/common/;/config/${PROJECT_NAME}/${ENV_NAME}/${spring.application.name}/
+
 # 拡張フレームワーク機能の設定    
 #example:
 #  sqs:
