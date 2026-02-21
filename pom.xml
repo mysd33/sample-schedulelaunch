@@ -55,10 +55,10 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
-        <!-- Micrometer Tracing -->
+        <!-- Spring Boot Starter OpenZipkin -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-micrometer-tracing-opentelemetry</artifactId>
+            <artifactId>spring-boot-starter-zipkin</artifactId>
         </dependency>
         <!-- Spring Cloud for AWS Parameter Store Integration-->
         <dependency>

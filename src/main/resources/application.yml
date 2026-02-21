@@ -25,10 +25,12 @@ management:
   endpoints:
     access:
       default: none
-  otlp:
-    metrics:
-      export:
-       enabled: false
+# Dislabled Tracing Exporting By Zipkin
+  tracing:
+    export:
+      zipkin:
+        enabled: false
+
 # Scheduled Batch Job Definition
 example:
   batch:
