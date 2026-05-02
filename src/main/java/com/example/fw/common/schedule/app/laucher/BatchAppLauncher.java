@@ -1,5 +1,6 @@
 package com.example.fw.common.schedule.app.laucher;
 
+import org.jspecify.annotations.NonNull;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 
@@ -28,7 +29,7 @@ public class BatchAppLauncher implements ApplicationRunner {
     private final ScheduledBatchJobRequestInputDto inputDto;
     
     @Override
-    public void run(ApplicationArguments args) throws Exception {
+    public void run(@NonNull ApplicationArguments args) throws Exception {
         execute();
     }
     

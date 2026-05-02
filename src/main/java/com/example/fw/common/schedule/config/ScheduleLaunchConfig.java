@@ -78,7 +78,7 @@ public class ScheduleLaunchConfig {
         }
         Object repository = beanFactory.getBean(beanName);
         if (repository instanceof JobRequestRepository) {
-            return new ScheduledBatchJobRequestRepositoryHolder(JobRequestRepository.class.cast(repository));
+            return new ScheduledBatchJobRequestRepositoryHolder((JobRequestRepository) repository);
         } else {
             throw new IllegalStateException("指定されたJobRequestRepository[" + beanName + "]はサポートしていません");
         }
