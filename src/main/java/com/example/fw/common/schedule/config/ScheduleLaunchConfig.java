@@ -17,11 +17,7 @@ import com.example.fw.common.schedule.infra.repository.ScheduledBatchJobRequestR
 import com.example.fw.common.systemdate.SystemDate;
 import com.example.fw.common.systemdate.config.SystemDateConfig;
 
-/**
- * 
- * スケジュール実行用の設定クラス
- * 
- */
+/// スケジュール実行用の設定クラス
 @Configuration
 @Import(SystemDateConfig.class)
 @EnableConfigurationProperties(ScheduledBatchProperties.class)
@@ -29,9 +25,7 @@ public class ScheduleLaunchConfig {
     private final ScheduledBatchProperties scheduledBatchProperties;
     private final String scheduleId;
 
-    /**
-     * コンストラクタ
-     */
+    /// コンストラクタ
     public ScheduleLaunchConfig(ScheduledBatchProperties scheduledBatchProperties) {
         this.scheduledBatchProperties = scheduledBatchProperties;
         this.scheduleId = scheduledBatchProperties.getTargetId();
@@ -44,9 +38,7 @@ public class ScheduleLaunchConfig {
 
     }
 
-    /**
-     * バッチのスケジュール起動クラス
-     */
+    /// バッチのスケジュール起動クラス
     @Bean
     BatchAppLauncher batchAppLauncher(ScheduledBatchJobRequestService service) {
         ScheduledJob scheduledJob = scheduledBatchProperties.getScheduledJobs().get(scheduleId);
@@ -58,18 +50,14 @@ public class ScheduleLaunchConfig {
         return new BatchAppLauncher(service, inputDto);
     }
 
-    /**
-     * バッチのスケジュール起動Serviceクラス
-     */
+    /// バッチのスケジュール起動Serviceクラス
     @Bean
     ScheduledBatchJobRequestService scheduledBatchJobRequestService(
             ScheduledBatchJobRequestRepositoryHolder repositoryHolder, SystemDate systemDate) {
         return new DefaultScheduledBatchJobRequestService(repositoryHolder, systemDate);
     }
 
-    /**
-     * JobRequestRepositoryを保持するHolderクラス
-     */
+    /// JobRequestRepositoryを保持するHolderクラス
     @Bean
     ScheduledBatchJobRequestRepositoryHolder jobRequestRepositoryHolder(ListableBeanFactory beanFactory) {
         String beanName = scheduledBatchProperties.getScheduledJobs().get(scheduleId).getJobRequestRepository();
@@ -77,8 +65,8 @@ public class ScheduleLaunchConfig {
             throw new IllegalStateException("JobRequestRepositoryのBean名が設定されていません[scheduleId: " + scheduleId + "]");
         }
         Object repository = beanFactory.getBean(beanName);
-        if (repository instanceof JobRequestRepository) {
-            return new ScheduledBatchJobRequestRepositoryHolder((JobRequestRepository) repository);
+        if (repository instanceof JobRequestRepository requestRepository) {
+            return new ScheduledBatchJobRequestRepositoryHolder(requestRepository);
         } else {
             throw new IllegalStateException("指定されたJobRequestRepository[" + beanName + "]はサポートしていません");
         }
