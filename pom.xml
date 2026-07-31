@@ -1,193 +1,193 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.0.6</version>
-        <relativePath /> <!-- lookup parent from repository -->
-    </parent>
-    <groupId>com.example</groupId>
-    <artifactId>sample-schedulelaunch</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
-    <name>sample-schedulelaunch</name>
-    <description>Demo project for Spring Boot</description>
-    <properties>
-        <java.version>25</java.version>
-        <spring-cloud.version>2025.1.1</spring-cloud.version>
-        <spring-cloud-aws.version>4.0.1</spring-cloud-aws.version>
-        <amazon-sqs-java-messaging-lib.version>2.1.4</amazon-sqs-java-messaging-lib.version>
-        <!-- MapStruct -->
-        <m2e.apt.activation>jdt_apt</m2e.apt.activation>
-        <org.mapstruct.version>1.6.3</org.mapstruct.version>
-        <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
-    </properties>
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>4.1.0</version>
+    <relativePath/> <!-- lookup parent from repository -->
+  </parent>
+  <groupId>com.example</groupId>
+  <artifactId>sample-schedulelaunch</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+  <name>sample-schedulelaunch</name>
+  <description>Demo project for Spring Boot</description>
+  <properties>
+    <java.version>25</java.version>
+    <spring-cloud.version>2025.1.2</spring-cloud.version>
+    <spring-cloud-aws.version>4.1.0</spring-cloud-aws.version>
+    <amazon-sqs-java-messaging-lib.version>2.1.4</amazon-sqs-java-messaging-lib.version>
+    <!-- MapStruct -->
+    <m2e.apt.activation>jdt_apt</m2e.apt.activation>
+    <org.mapstruct.version>1.6.3</org.mapstruct.version>
+    <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
+  </properties>
+  <dependencies>
+    <!-- Spring Boot Starter -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter</artifactId>
+    </dependency>
+    <!-- Spring Boot Starter Jackson-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jackson</artifactId>
+    </dependency>
+    <!-- Spring Boot Starter Actuator -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+    <!-- Spring Boot Starter Test -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <!-- Spring Boot Devtools -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-devtools</artifactId>
+      <scope>runtime</scope>
+      <optional>true</optional>
+    </dependency>
+    <!-- Lombok -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <!-- Spring Boot Starter OpenZipkin -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-zipkin</artifactId>
+    </dependency>
+    <!-- Spring Cloud for AWS Parameter Store Integration-->
+    <dependency>
+      <groupId>io.awspring.cloud</groupId>
+      <artifactId>spring-cloud-aws-starter-parameter-store</artifactId>
+    </dependency>
+    <!-- Spring Cloud for AWS Secrets Manager Integration-->
+    <dependency>
+      <groupId>io.awspring.cloud</groupId>
+      <artifactId>spring-cloud-aws-starter-secrets-manager</artifactId>
+    </dependency>
+    <!-- Spring Boot Starter JMS -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jms</artifactId>
+    </dependency>
+    <!-- Amazon SQS Java Messaging Library -->
+    <dependency>
+      <groupId>com.amazonaws</groupId>
+      <artifactId>amazon-sqs-java-messaging-lib</artifactId>
+      <version>${amazon-sqs-java-messaging-lib.version}</version>
+    </dependency>
+    <!-- AWS SDK Http Client -->
+    <dependency>
+      <groupId>software.amazon.awssdk</groupId>
+      <artifactId>apache-client</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <!-- AWS SDK SQS -->
+    <dependency>
+      <groupId>software.amazon.awssdk</groupId>
+      <artifactId>sqs</artifactId>
+    </dependency>
+  </dependencies>
+  <dependencyManagement>
     <dependencies>
-        <!-- Spring Boot Starter -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-        <!-- Spring Boot Starter Jackson-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jackson</artifactId>
-        </dependency>
-        <!-- Spring Boot Starter Actuator -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <!-- Spring Boot Starter Test -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <!-- Spring Boot Devtools -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-            <optional>true</optional>
-        </dependency>
-        <!-- Lombok -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <!-- Spring Boot Starter OpenZipkin -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-zipkin</artifactId>
-        </dependency>
-        <!-- Spring Cloud for AWS Parameter Store Integration-->
-        <dependency>
-            <groupId>io.awspring.cloud</groupId>
-            <artifactId>spring-cloud-aws-starter-parameter-store</artifactId>
-        </dependency>
-        <!-- Spring Cloud for AWS Secrets Manager Integration-->
-        <dependency>
-            <groupId>io.awspring.cloud</groupId>
-            <artifactId>spring-cloud-aws-starter-secrets-manager</artifactId>
-        </dependency>
-        <!-- Spring Boot Starter JMS -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jms</artifactId>
-        </dependency>
-        <!-- Amazon SQS Java Messaging Library -->
-        <dependency>
-            <groupId>com.amazonaws</groupId>
-            <artifactId>amazon-sqs-java-messaging-lib</artifactId>
-            <version>${amazon-sqs-java-messaging-lib.version}</version>
-        </dependency>
-        <!-- AWS SDK Http Client -->
-        <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>apache-client</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>commons-logging</groupId>
-                    <artifactId>commons-logging</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <!-- AWS SDK SQS -->
-        <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>sqs</artifactId>
-        </dependency>
+      <!-- Spring Cloud -->
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!-- Spring Cloud for AWS -->
+      <dependency>
+        <groupId>io.awspring.cloud</groupId>
+        <artifactId>spring-cloud-aws-dependencies</artifactId>
+        <version>${spring-cloud-aws.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
     </dependencies>
-    <dependencyManagement>
-        <dependencies>
-            <!-- Spring Cloud -->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <!-- Spring Cloud for AWS -->
-            <dependency>
-                <groupId>io.awspring.cloud</groupId>
-                <artifactId>spring-cloud-aws-dependencies</artifactId>
-                <version>${spring-cloud-aws.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <annotationProcessorPaths>
-                        <!-- Lombok -->
-                        <path>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                            <version>${lombok.version}</version>
-                        </path>
-                        <!-- MapStruct -->
-                        <path>
-                            <groupId>org.mapstruct</groupId>
-                            <artifactId>mapstruct-processor</artifactId>
-                            <version>${org.mapstruct.version}</version>
-                        </path>
-                        <path>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok-mapstruct-binding</artifactId>
-                            <version>${lombok-mapstruct-binding.version}</version>
-                        </path>
-                    </annotationProcessorPaths>
-                    <release>${java.version}</release>
-                </configuration>
-            </plugin>
-            <!-- Spring Boot Maven Plugin -->
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <!-- Generate Build Information(META-INF/build-info.properties) -->
-                <!--
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>build-info</goal>
-                        </goals>
-                    </execution>
-                </executions>
+  </dependencyManagement>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <annotationProcessorPaths>
+            <!-- Lombok -->
+            <path>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok</artifactId>
+              <version>${lombok.version}</version>
+            </path>
+            <!-- MapStruct -->
+            <path>
+              <groupId>org.mapstruct</groupId>
+              <artifactId>mapstruct-processor</artifactId>
+              <version>${org.mapstruct.version}</version>
+            </path>
+            <path>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok-mapstruct-binding</artifactId>
+              <version>${lombok-mapstruct-binding.version}</version>
+            </path>
+          </annotationProcessorPaths>
+          <release>${java.version}</release>
+        </configuration>
+      </plugin>
+      <!-- Spring Boot Maven Plugin -->
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <!-- Generate Build Information(META-INF/build-info.properties) -->
+        <!--
+        <executions>
+            <execution>
+                <goals>
+                    <goal>build-info</goal>
+                </goals>
+            </execution>
+        </executions>
 -->
-                <!-- Lombok -->
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
-            <!-- Git Commit Id Plugin -->
-            <!--
-            <plugin>
-                <groupId>io.github.git-commit-id</groupId>
-                <artifactId>git-commit-id-maven-plugin</artifactId>
-            </plugin>
+        <!-- Lombok -->
+        <configuration>
+          <excludes>
+            <exclude>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok</artifactId>
+            </exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+      <!-- Git Commit Id Plugin -->
+      <!--
+      <plugin>
+          <groupId>io.github.git-commit-id</groupId>
+          <artifactId>git-commit-id-maven-plugin</artifactId>
+      </plugin>
 -->
-            <!-- CycloneDX SBOM -->
-            <!--
-            <plugin>
-                <groupId>org.cyclonedx</groupId>
-                <artifactId>cyclonedx-maven-plugin</artifactId>
-            </plugin>
+      <!-- CycloneDX SBOM -->
+      <!--
+      <plugin>
+          <groupId>org.cyclonedx</groupId>
+          <artifactId>cyclonedx-maven-plugin</artifactId>
+      </plugin>
 -->
-        </plugins>
-    </build>
+    </plugins>
+  </build>
 </project>
