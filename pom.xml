@@ -16,7 +16,7 @@
   <description>Demo project for Spring Boot</description>
   <properties>
     <java.version>25</java.version>
-    <spring-cloud.version>2025.1.3</spring-cloud.version>
+    <spring-cloud.version>2025.1.4</spring-cloud.version>
     <spring-cloud-aws.version>4.2.0</spring-cloud-aws.version>
     <amazon-sqs-java-messaging-lib.version>2.1.4</amazon-sqs-java-messaging-lib.version>
     <!-- MapStruct -->
